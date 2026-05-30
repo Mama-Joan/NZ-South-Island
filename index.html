@@ -1,322 +1,800 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NZ South Island Family Trip — June 2026</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-.wrap{padding:0 2px 24px;font-family:var(--font-sans,sans-serif)}
-.hero h1{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
-.hero p{font-size:13px;color:var(--color-text-secondary);margin-bottom:14px}
-.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
-.tab{font-size:11px;padding:5px 10px;border-radius:20px;border:1px solid var(--color-border-secondary);cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary);white-space:nowrap;transition:all .15s;line-height:1.3;text-align:center}
-.tab.active{background:#185FA5;color:#fff;border-color:#185FA5}
-.tab .tday{font-weight:500;display:block}
-.tab .tdate{font-size:10px;opacity:.85;display:block}
-.day{display:none}
-.day.visible{display:block}
-.dhead{background:var(--color-background-secondary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:12px}
-.dhead-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.dbadge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
-.dtitle{font-size:15px;font-weight:500;color:var(--color-text-primary)}
-.droute{font-size:12px;color:var(--color-text-secondary)}
-.winter{margin-top:8px;padding:9px 11px;background:#EEEDFE;border-radius:7px;border-left:3px solid #534AB7;font-size:12px;color:#3C3489;line-height:1.5}
-.winter strong{color:#534AB7}
-.drive{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--color-text-secondary);padding:7px 10px;background:var(--color-background-primary);border-radius:6px;margin:8px 0;border:1px solid var(--color-border-tertiary)}
-.slot{display:flex;gap:10px;margin-bottom:10px}
-.st{font-size:11px;color:var(--color-text-tertiary);min-width:54px;padding-top:2px;line-height:1.4}
-.sb{flex:1}
-.slabel{font-size:13px;font-weight:500;color:var(--color-text-primary);line-height:1.4;margin-bottom:2px}
-.note{font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin-top:3px}
-.tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;margin-left:4px;vertical-align:middle}
-.tok{background:#EAF3DE;color:#3B6D11}
-.twarn{background:#FAEEDA;color:#854F0B}
-.twinter{background:#EEEDFE;color:#534AB7}
-.eat{margin-top:5px;border-left:3px solid #EF9F27;padding:6px 10px;background:var(--color-background-primary);border-radius:0 6px 6px 0;font-size:12px;color:var(--color-text-primary);line-height:1.6}
-.eat .eh{font-weight:500;color:#854F0B}
-.photo{margin-top:5px;border-left:3px solid #185FA5;padding:6px 10px;background:var(--color-background-primary);border-radius:0 6px 6px 0;font-size:12px;color:var(--color-text-primary);line-height:1.5}
-.photo .ph{font-weight:500;color:#0C447C}
-.hrs{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
-.option-box{margin-top:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--color-border-secondary);background:var(--color-background-secondary)}
-.option-title{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
-.rec{margin-top:10px;padding:10px 12px;background:#EAF3DE;border-radius:8px;border-left:3px solid #3B6D11;font-size:12px;color:#27500A;line-height:1.5}
-.rec strong{color:#3B6D11}
-hr.dv{border:none;border-top:1px solid var(--color-border-tertiary);margin:10px 0}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff; --bg2: #f7f6f3; --bg3: #eeece8;
+    --text: #1a1a18; --text2: #5a5a56; --text3: #8a8a84;
+    --border: rgba(0,0,0,0.1); --border2: rgba(0,0,0,0.18);
+    --radius: 12px; --radius-sm: 8px;
+    --amber: #854F0B; --amber-bg: #FAEEDA;
+    --blue: #185FA5; --blue-bg: #E6F1FB;
+    --green: #3B6D11; --green-bg: #EAF3DE;
+    --purple: #534AB7; --purple-bg: #EEEDFE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a; --bg2: #252522; --bg3: #2e2e2a;
+      --text: #e8e6e0; --text2: #a8a69e; --text3: #6e6c66;
+      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.18);
+      --amber: #FAC775; --amber-bg: #2a1e08;
+      --blue: #85B7EB; --blue-bg: #0c1e30;
+      --green: #C0DD97; --green-bg: #0f2006;
+      --purple: #AFA9EC; --purple-bg: #1a1840;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    font-size: 15px; line-height: 1.6; min-height: 100vh;
+  }
+  .page { max-width: 780px; margin: 0 auto; padding: 28px 18px 56px; }
+
+  .hero { margin-bottom: 22px; }
+  .hero h1 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .hero p { font-size: 14px; color: var(--text2); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .tag {
+    display: inline-flex; align-items: center;
+    font-size: 11px; font-weight: 600;
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .tag-ok  { background: var(--green-bg); color: var(--green); }
+  .tag-warn { background: var(--amber-bg); color: var(--amber); }
+  .tag-winter { background: var(--purple-bg); color: var(--purple); }
+  .tag-tip { background: var(--blue-bg); color: var(--blue); }
+
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 22px; }
+  .tab {
+    font-size: 11px; font-weight: 500;
+    padding: 6px 12px; border-radius: 20px;
+    border: 1px solid var(--border2);
+    cursor: pointer; background: var(--bg2); color: var(--text2);
+    line-height: 1.35; text-align: center;
+    transition: all 0.15s; user-select: none;
+  }
+  .tab:hover { border-color: var(--blue); color: var(--blue); }
+  .tab.active { background: #185FA5; color: #fff; border-color: #185FA5; }
+  .tab .tday { display: block; font-weight: 700; font-size: 12px; }
+  .tab .tdate { display: block; font-size: 10px; opacity: 0.85; }
+
+  .day { display: none; }
+  .day.visible { display: block; }
+
+  .dhead {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px; margin-bottom: 18px;
+  }
+  .dhead-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .dbadge { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+  .dtitle { font-size: 16px; font-weight: 700; color: var(--text); }
+  .droute { font-size: 13px; color: var(--text2); margin-top: 1px; }
+
+  .winter-note {
+    margin-top: 10px; padding: 10px 12px;
+    background: var(--purple-bg); border-radius: var(--radius-sm);
+    border-left: 3px solid var(--purple);
+    font-size: 12px; color: var(--purple); line-height: 1.5;
+  }
+
+  .drive {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--text2);
+    padding: 8px 12px; background: var(--bg2);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    margin: 10px 0;
+  }
+
+  .slot { display: flex; gap: 12px; margin-bottom: 14px; }
+  .slot-time {
+    font-size: 11px; color: var(--text3);
+    min-width: 56px; padding-top: 2px;
+    line-height: 1.4; flex-shrink: 0;
+  }
+  .slot-body { flex: 1; min-width: 0; }
+  .slot-label {
+    font-size: 14px; font-weight: 600; color: var(--text);
+    line-height: 1.4; margin-bottom: 3px;
+  }
+  .inline-tag {
+    display: inline-flex; align-items: center;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 7px; border-radius: 20px; margin-left: 5px;
+    background: var(--green-bg); color: var(--green);
+  }
+  .slot-note { font-size: 12px; color: var(--text2); line-height: 1.5; margin-top: 3px; }
+
+  .eat-block {
+    margin-top: 7px; border-left: 3px solid #EF9F27;
+    padding: 8px 12px; background: var(--bg2);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 12px; color: var(--text); line-height: 1.75;
+  }
+  .eat-block .en { font-weight: 700; color: var(--amber); }
+
+  .photo-block {
+    margin-top: 7px; border-left: 3px solid #185FA5;
+    padding: 8px 12px; background: var(--bg2);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 12px; color: var(--text); line-height: 1.5;
+  }
+  .photo-block .pn { font-weight: 700; color: var(--blue); }
+
+  .hours { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+  .option-wrap { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+  .option-box { border: 1px solid var(--border2); border-radius: var(--radius); overflow: hidden; }
+  .option-title {
+    font-size: 13px; font-weight: 700; color: var(--text);
+    padding: 12px 16px 10px; background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+  }
+  .option-body { padding: 14px 16px; }
+
+  .rec-box {
+    margin-top: 16px; padding: 13px 15px;
+    background: var(--green-bg); border-radius: var(--radius-sm);
+    border-left: 3px solid var(--green);
+    font-size: 13px; color: var(--green); line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .tabs { gap: 4px; }
+    .tab { font-size: 10px; padding: 5px 8px; }
+    .hero h1 { font-size: 18px; }
+    .dtitle { font-size: 14px; }
+  }
 </style>
-<div class="wrap">
-<div class="hero">
-  <h1>South Island family trip — June 2026</h1>
-  <p>Tue 2 Jun → Tue 9 Jun · 2 adults + kids 7 & 4 · Winter</p>
-</div>
+</head>
+<body>
+<div class="page">
 
-<div class="tabs">
-  <div class="tab active" onclick="show(0)"><span class="tday">Day 1</span><span class="tdate">Tue 2 Jun</span><span class="tdate">CHC→Tekapo</span></div>
-  <div class="tab" onclick="show(1)"><span class="tday">Day 2</span><span class="tdate">Wed 3 Jun</span><span class="tdate">Tekapo→MtCook</span></div>
-  <div class="tab" onclick="show(2)"><span class="tday">Day 3</span><span class="tdate">Thu 4 Jun</span><span class="tdate">MtCook→QT</span></div>
-  <div class="tab" onclick="show(3)"><span class="tday">Day 4</span><span class="tdate">Fri 5 Jun</span><span class="tdate">QT + Wanaka</span></div>
-  <div class="tab" onclick="show(4)"><span class="tday">Day 5</span><span class="tdate">Sat 6 Jun</span><span class="tdate">Queenstown</span></div>
-  <div class="tab" onclick="show(5)"><span class="tday">Day 6</span><span class="tdate">Sun 7 Jun</span><span class="tdate">Queenstown</span></div>
-  <div class="tab" onclick="show(6)"><span class="tday">Day 7</span><span class="tdate">Mon 8 Jun</span><span class="tdate">QT→Tekapo</span></div>
-  <div class="tab" onclick="show(7)"><span class="tday">Day 8</span><span class="tdate">Tue 9 Jun</span><span class="tdate">Tekapo→CHC</span></div>
-</div>
-
-<!-- DAY 1: Tue 2 Jun -->
-<div class="day visible" id="d0">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#E1F5EE;color:#0F6E56">Tue 2 Jun</span><div><div class="dtitle">Christchurch → Fairlie → Lake Tekapo</div><div class="droute">Arrival day · ~3 hr drive total</div></div></div>
-    <div class="winter"><strong>❄ June:</strong> Roads can be icy or frosty past Fairlie through the Mackenzie Basin. Drive carefully after Burkes Pass. Sunset around 5 pm — aim to reach Tekapo in daylight.</div>
+  <div class="hero">
+    <h1>&#x1F1F3;&#x1F1FF; South Island Family Trip — June 2026</h1>
+    <p>Tue 2 Jun &rarr; Tue 9 Jun &nbsp;&middot;&nbsp; 2 adults + kids age 7 &amp; 4 &nbsp;&middot;&nbsp; Winter</p>
   </div>
 
-  <div class="slot"><div class="st">9:30 am</div><div class="sb"><div class="slabel">Land CHC · Car pickup at Stanleys Rd <span class="tag tok">✓</span></div><div class="note">RentalCars247 +64 3 662 9026. Confirm child car seats — booster for 7-yr-old, child seat for 4-yr-old. Get fuel in Christchurch before heading inland.</div></div></div>
-
-  <div class="photo"><span class="ph">📷 Burkes Pass township (en route):</span> The old stone church and golden tussock landscape mark the gateway into the Mackenzie Basin — a lovely 5-min stop and shot.</div>
-
-  <div class="drive">🚗 CHC → Fairlie ~2 hrs via SH1 / SH79</div>
-
-  <div class="slot"><div class="st">11:30 am</div><div class="sb"><div class="slabel">Fairlie — pies & stretch <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Fairlie Bakehouse</span> — Steak & cheese pie, salmon pie, mince & cheese, cinnamon scroll. Arrive before 12 pm or pies sell out. Hours: Mon–Sun 7 am–4 pm.<br><span class="eh">Peaks Café</span> — Backup if the bakehouse is packed. Good coffee and cabinet food.</div>
-    <div class="note">Keep this stop short — grab pies, let kids stretch at the small park nearby, then push on. You want to reach Tekapo with daylight to enjoy the lakefront.</div></div></div>
-
-  <div class="drive">🚗 Fairlie → Lake Tekapo ~45 min via Burkes Pass</div>
-
-  <div class="slot"><div class="st">1:30 pm</div><div class="sb"><div class="slabel">Church of Good Shepherd + Lake foreshore <span class="tag tok">✓</span></div>
-    <div class="photo"><span class="ph">📷 Church of Good Shepherd:</span> Stone church framed by the turquoise lake and Southern Alps behind — the classic Tekapo shot. In June the tussock goes golden-brown and the mountains may have snow. Flat, pram-friendly walk. Allow 30–45 mins.</div>
-    <div class="note">Arrive early afternoon for fewer crowds. Short walk around the lakefront afterwards is lovely even in the cold.</div></div></div>
-
-  <div class="slot"><div class="st">2:30 pm</div><div class="sb"><div class="slabel">Supermarket run <span class="tag tok">✓</span></div><div class="note">Stock up on snacks, breakfast items, and drinks for the next few days in the Mackenzie. Limited shops ahead.</div></div></div>
-
-  <div class="slot"><div class="st">3:30 pm</div><div class="sb"><div class="slabel">Check-in Galaxy Boutique Hotel · Rest <span class="tag tok">✓</span></div><div class="note">Rest before stargazing. Lay out warm clothes for tonight — Tekapo in June is 0–5°C at night. Base layers + puffer jackets + hats & gloves for both kids.</div></div></div>
-
-  <div class="slot"><div class="st">5:30 pm</div><div class="sb"><div class="slabel">Early dinner — before stargazing <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">TLV Restaurant & Bar</span> — Lake views, sit-down, salmon dishes. Good for a proper meal. Hours: daily 11 am–9 pm.<br><span class="eh">Kohan Restaurant</span> — Japanese, lakeside, kid-friendly portions. Hours: daily 11:30 am–9 pm.<br><span class="eh">Jack Rabbit Café & Bar</span> — Casual, family atmosphere, by the lake. Hours: daily ~8 am–late.<br><span class="eh">The Greedy Cow Café</span> — Cosy indoors, great cabinet food. Better for lunch; check dinner hours.</div>
-    <div class="note">Eating at 5:30 pm is important — you don't want hungry kids during the 75-min stargazing session, and it gives time to digest and get back into warm gear before the 6:45 pm meetup.</div></div></div>
-
-  <div class="slot"><div class="st">6:45 pm</div><div class="sb"><div class="slabel">Silver River Stargazing (75 mins) <span class="tag tok">✓ Confirmed age 4+ ok</span></div>
-    <div class="note">Starts 7 pm. Ends ~8:30 pm. Serious warm layers for both kids — multiple base layers, puffer, hat, gloves, and consider a carrier or blanket for the 4-yr-old. Bring snacks. One of the darkest sky reserves in the world — an unforgettable experience.</div></div></div>
-
-  <div class="slot"><div class="st">8:30 pm</div><div class="sb"><div class="slabel">Return to Galaxy Hotel</div></div></div>
-</div>
-
-<!-- DAY 2: Wed 3 Jun -->
-<div class="day" id="d1">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#E1F5EE;color:#0F6E56">Wed 3 Jun</span><div><div class="dtitle">Lake Tekapo → Lake Pukaki → Mount Cook</div><div class="droute">~2.5 hrs total driving</div></div></div>
-    <div class="winter"><strong>❄ June:</strong> Mt Cook road (SH80) can be icy and snowy, especially in the afternoon. Check NZTA road status before heading up. Village sits at the base of Aoraki — stunning with snow on the peaks. Pack extra warm layers.</div>
+  <div class="legend">
+    <span class="tag tag-ok">&#10003; Great for kids</span>
+    <span class="tag tag-warn">&#9888; Note</span>
+    <span class="tag tag-winter">&#10052; Winter-specific</span>
+    <span class="tag tag-tip">&#128247; Photo stop</span>
   </div>
 
-  <div class="slot"><div class="st">8:30 am</div><div class="sb"><div class="slabel">Optional: Mt John Summit drive <span class="tag tok">✓</span></div>
-    <div class="photo"><span class="ph">📷 Mt John Summit:</span> 360° views of Lake Tekapo, Lake Alexandrina, and the Southern Alps — the best landscape shot in the region. Toll road ~$8. Allow 20–30 mins if skies are clear. Worth doing before the petting zoo if you have time.</div></div></div>
-
-  <div class="slot"><div class="st">9:00 am</div><div class="sb"><div class="slabel">Lake Tekapo Petting Zoo <span class="tag tok">✓ Book online ahead</span></div>
-    <div class="note">Hand-feed Merino sheep, alpacas, KuneKune pigs, calves. Both kids will love it. Limited spots per day — book in advance online.</div>
-    <div class="hrs">48a D'Archiac Drive · <strong>Winter hours: daily 9 am–4 pm</strong> · ~45–60 mins · +64 27 900 0335</div></div></div>
-
-  <div class="drive">🚗 Lake Tekapo → Lake Pukaki ~45 min via SH8</div>
-
-  <div class="photo"><span class="ph">📷 Lake Pukaki dam viewpoint:</span> Pull over at the dam lookout as you approach on SH8 — your first view of the electric turquoise lake with Aoraki behind. One of the great NZ views, even more dramatic in winter with snow on the peaks. 5-minute stop, absolutely unmissable.</div>
-
-  <div class="slot"><div class="st">11:00 am</div><div class="sb"><div class="slabel">Lake Pukaki — lunch & photos <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Mt Cook Alpine Salmon Shop</span> — Salmon sashimi, nigiri, hot smoked salmon. An iconic South Island food stop. Hours: daily ~9 am–5 pm · +64 3 435 0427.<br><span class="eh">Marker Bay Food Truck</span> — Casual outdoor, fish & chips, salmon burgers. Check winter operating days as hours may be reduced in June.</div>
-    <div class="photo"><span class="ph">📷 Marker Bay:</span> Walk 5 mins from the carpark to the lakefront — the reflection of Aoraki in the turquoise water from this bay is one of the most photographed views in New Zealand. Best in morning light.</div></div></div>
-
-  <div class="drive">🚗 Lake Pukaki → Mount Cook Village ~1 hr · Check NZTA road status before departing</div>
-
-  <div class="slot"><div class="st">1:30 pm</div><div class="sb"><div class="slabel">Arrive Mt Cook Village · Check-in Mt Cook Lodge · Settle in</div>
-    <div class="eat"><span class="eh">Old Mountaineers' Café</span> — Best café in the village. Pies, hot drinks, cabinet food, mountain views. Hours: daily 8 am–9 pm.</div></div></div>
-
-  <div class="slot"><div class="st">3:00 pm</div><div class="sb"><div class="slabel">Kea Point Track <span class="tag tok">✓ Save Hooker for morning</span></div>
-    <div class="note">1.5 km return (~30 mins), flat, pram-accessible. Direct view of the Mueller Glacier terminal lake and Aoraki's face. Perfect for a cold late afternoon — less demanding than Hooker and genuinely impressive. Save Hooker for the fresh morning of Day 3.</div>
-    <div class="photo"><span class="ph">📷 Kea Point:</span> Mueller Glacier lake with Aoraki looming behind. In winter with snow on the valley floor, this is dramatic. Great family shot at the viewpoint platform.</div></div></div>
-
-  <div class="slot"><div class="st">5:30 pm</div><div class="sb"><div class="slabel">Dinner <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Old Mountaineers' Café</span> — Casual, warm, great food. Preferred with kids. Open until 9 pm.<br><span class="eh">The Hermitage Hotel Restaurant</span> — More formal option. Dinner from 6 pm. Mountain views.</div></div></div>
-</div>
-
-<!-- DAY 3: Thu 4 Jun -->
-<div class="day" id="d2">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#E1F5EE;color:#0F6E56">Thu 4 Jun</span><div><div class="dtitle">Mount Cook → Twizel → Queenstown</div><div class="droute">Hooker Valley Track AM · ~4 hrs total driving · Checkout at breakfast</div></div></div>
-    <div class="winter"><strong>❄ June:</strong> Hooker Valley will be cold and possibly frosty — dress in multiple layers. Track may have icy patches near the glacier end. The Lindis Pass drive to Queenstown is one of NZ's most beautiful winter landscapes. Sunset ~5 pm — aim for Queenstown by 5 pm.</div>
-  </div>
-
-  <div class="slot"><div class="st">8:00 am</div><div class="sb"><div class="slabel">Breakfast at Old Mountaineers' · Checkout bags to car <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Old Mountaineers' Café</span> — Opens 8 am. Check out, load bags, head straight to the trailhead after breakfast. It's a 5-min drive from the lodge to the Hooker Valley carpark.</div></div></div>
-
-  <div class="slot"><div class="st">8:45 am</div><div class="sb"><div class="slabel">Hooker Valley Track <span class="tag tok">✓ Aim for 2nd swing bridge</span></div>
-    <div class="note">Start at the Hooker Valley carpark. Target: second suspension bridge (~5 km return, ~1.5 hrs) — this gives you the iconic Aoraki reflection in Hooker Lake on a clear day. Both suspension bridges are exciting for kids and very manageable for a 7-yr-old. The 4-yr-old will need encouragement on the way back but the bridges make it worthwhile. If energy or cold is a factor, the first bridge (2 km return, ~40 mins) is still a great experience.</div>
-    <div class="photo"><span class="ph">📷 Hooker Valley:</span> The suspension bridges with Aoraki behind are an iconic NZ shot. Best light is morning. Fresh snow on the valley floor in June makes this even more dramatic. Get a family shot mid-bridge with the mountain behind.</div>
-    <div class="note"><strong>Weather backup:</strong> If the track is icy or closed, the Blue Lakes Walk (1 km, very easy) or Tasman Glacier Viewpoint (45 min return) are safe, child-friendly alternatives.</div></div></div>
-
-  <div class="slot"><div class="st">10:30 am</div><div class="sb"><div class="slabel">Back to car · Head to Twizel</div></div></div>
-
-  <div class="drive">🚗 Mt Cook → Twizel ~1 hr via SH80 / SH8</div>
-
-  <div class="photo"><span class="ph">📷 Lake Ruataniwha (near Twizel):</span> A quick lakefront pull-off on SH8 heading south — flat turquoise lake framed by mountains. 5-minute stop.</div>
-
-  <div class="slot"><div class="st">11:45 am</div><div class="sb"><div class="slabel">Twizel — lunch & rest <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Mint Folk & Co</span> — Best lunch stop in Twizel. Modern café, quality food. Hours: daily ~8 am–3 pm.<br><span class="eh">Poppies Café</span> — Family-friendly, great warm portions, cosy inside. Hours: daily ~8 am–3 pm.<br><span class="eh">Col's Bakery</span> — Quick pies & pastries if you want to push on. Hours: Mon–Sat ~7 am–3 pm.</div>
-    <div class="note">Twizel has a small playground near the town centre — good for kids to run around before the long drive.</div></div></div>
-
-  <div class="drive">🚗 Twizel → Queenstown ~3 hrs via Lindis Pass (SH8)</div>
-
-  <div class="photo"><span class="ph">📷 Lindis Pass summit (~1,000 m):</span> Pull into the summit layby on SH8 — rolling golden-brown tussock with snow-dusted peaks in every direction. One of the most underrated stops in New Zealand. 5 minutes, huge reward.</div>
-
-  <div class="slot"><div class="st">3:30 pm</div><div class="sb"><div class="slabel">Arrive Queenstown · Check-in Crowne Plaza <span class="tag tok">✓</span></div></div></div>
-
-  <div class="slot"><div class="st">5:00 pm</div><div class="sb"><div class="slabel">Steamer Wharf stroll + dinner</div>
-    <div class="eat"><span class="eh">Public Italian Kitchen</span> — Top pick for families. Great pizza & pasta. Hours: daily 12 pm–9:30 pm.<br><span class="eh">Winnies</span> — Great pizza, laid-back, family-friendly. Hours: daily from 4 pm.<br><span class="eh">The Boat Shed</span> (Steamer Wharf) — Fish & chips, lakeside. Easy and casual after a long day.</div></div></div>
-</div>
-
-<!-- DAY 4: Fri 5 Jun -->
-<div class="day" id="d3">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#EEEDFE;color:#534AB7">Fri 5 Jun</span><div><div class="dtitle">Queenstown → Wanaka day trip</div><div class="droute">~1–1.5 hr each way</div></div></div>
-    <div class="winter"><strong>❄ June route:</strong> Crown Range Road (70 km, ~1 hr) — NZ's highest sealed road, dramatic Cardrona Valley views, but can be icy in June and may require snow chains. Check conditions on the morning. SH6 via Cromwell (115 km, ~1.5 hrs) is the safer, reliable winter alternative. If Crown Range looks good, take it — it's exceptional.</div>
-  </div>
-
-  <div class="slot"><div class="st">8:30 am</div><div class="sb"><div class="slabel">Breakfast in Queenstown <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Odd Saint</span> — Great breakfast, modern café. Hours: daily 7 am–3 pm.<br><span class="eh">Yonder</span> — Spacious, family-friendly, good brunch. Hours: daily 7 am–2:30 pm.</div></div></div>
-
-  <div class="photo"><span class="ph">📷 Lake Hayes (SH6 route):</span> A small mirror-calm lake just outside Queenstown. On still winter mornings the reflection of the surrounding hills is perfect — 5-min roadside pull-off.</div>
-  <div class="photo"><span class="ph">📷 Crown Range summit (if taking that route):</span> Pull over at the summit layby for a panoramic view down over the Cardrona Valley — one of the great NZ road trip shots. 5-minute stop.</div>
-
-  <div class="drive">🚗 Queenstown → Wanaka ~1 hr (Crown Range) or 1.5 hrs (SH6 via Cromwell)</div>
-
-  <div class="slot"><div class="st">10:00 am</div><div class="sb"><div class="slabel">That Wanaka Tree + lakefront <span class="tag tok">✓</span></div>
-    <div class="photo"><span class="ph">📷 That Wanaka Tree:</span> The lone willow standing in the lake with the Southern Alps behind — one of NZ's most photographed scenes. Short walk from town along the lakefront. In winter with snow-capped peaks it's spectacular. Kids enjoy the rocky shoreline too. Allow 20–30 mins.</div></div></div>
-
-  <div class="slot"><div class="st">10:30 am</div><div class="sb"><div class="slabel">Wanaka town explore + coffee</div>
-    <div class="eat"><span class="eh">Federal Diner</span> — Famous scones, great coffee, cosy local feel. Perfect mid-morning stop. Hours: daily 7 am–3 pm · 47 Helwick St.</div></div></div>
-
-  <div class="slot"><div class="st">1:00 pm</div><div class="sb"><div class="slabel">Lunch in Wanaka <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Relishes Café</span> — Fireplace for winter, lakefront views, excellent brunch & lunch menu. A long-time local favourite. Hours: daily 7:30 am–3 pm · 99 Ardmore St.<br><span class="eh">Kai Whakapai</span> — Lake views, relaxed all-day menu, good for families. Hours: daily ~8 am–late.</div></div></div>
-
-  <div class="slot"><div class="st">2:00 pm</div><div class="sb"><div class="slabel">Lake Wanaka foreshore walk <span class="tag tok">✓</span></div>
-    <div class="note">Flat, easy lakefront walk from the town centre. The lake is stunning in winter with snow on the mountains. Keep it to 30 mins — June afternoons cool down quickly. Kids can feed the ducks near the waterfront.</div></div></div>
-
-  <div class="drive">🚗 Wanaka → Queenstown ~1–1.5 hrs · Leave by 3 pm to be back before dark</div>
-
-  <div class="slot"><div class="st">5:00 pm</div><div class="sb"><div class="slabel">Back in Queenstown · Dinner</div>
-    <div class="eat"><span class="eh">Fergburger</span> — Worth doing once. Go at 5 pm to beat the queue. Hours: daily 8 am–5 am.<br><span class="eh">Erik's Fish and Chips</span> — Easy, affordable family meal. Hours: daily ~11 am–9 pm.</div></div></div>
-</div>
-
-<!-- DAY 5: Sat 6 Jun -->
-<div class="day" id="d4">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#E1F5EE;color:#0F6E56">Sat 6 Jun</span><div><div class="dtitle">Queenstown — Snow Day + Skyline</div><div class="droute">Coronet Peak AM · Skyline PM</div></div></div>
-    <div class="winter"><strong>❄ June = ski season:</strong> Coronet Peak typically opens mid-June. Check coronetpeak.co.nz for the exact opening date — if open, this is a brilliant family day. Ski school runs from age 3. If snow isn't operating yet, swap the morning for Arrowtown.</div>
-  </div>
-
-  <div class="slot"><div class="st">8:30 am</div><div class="sb"><div class="slabel">Coronet Peak (if open) <span class="tag tok">✓</span></div>
-    <div class="note">Beginner slopes, ski school for both kids (age 3+). Hire gear at the base. Warm, waterproof layers + sunscreen — UV is strong on snow. Allow the full morning. A half-day ski lesson for the kids is a great option.</div>
-    <div class="eat"><span class="eh">Coronet Peak base lodge café</span> — Hot food and warming drinks on the mountain.</div></div></div>
-
-  <div class="slot"><div class="st">8:30 am</div><div class="sb"><div class="slabel">Arrowtown (if Coronet not open) <span class="tag tok">✓</span></div>
-    <div class="note">Historic gold-mining town, 20 min from Queenstown. Very charming in winter — quiet, fewer crowds than summer. Kids love the Chinese Settlement site and the Arrow River. Allow 1.5 hrs.</div>
-    <div class="eat"><span class="eh">Postmasters Café</span> — Popular brunch, good food. Hours: daily ~8 am–4 pm.</div>
-    <div class="photo"><span class="ph">📷 Arrowtown:</span> The heritage-listed lane of gold-era cottages backed by tussock hills — great family walking shot even without the autumn leaves.</div></div></div>
-
-  <div class="slot"><div class="st">2:00 pm</div><div class="sb"><div class="slabel">Skyline Queenstown + Luge <span class="tag tok">✓ Kids favourite</span></div>
-    <div class="note">Gondola up + luge runs — perfect for both ages (min 3 yrs for luge, 4-yr-old rides tandem with a parent). Allow 3–4 hrs. In winter the gondola views of The Remarkables under snow are spectacular. Do your luge runs while there's still some light (2–4 pm), then head up to dinner.</div>
-    <div class="eat"><span class="eh">Stratosfare Restaurant</span> (Skyline) — Buffet at the top. Kids at a lower price. Convenient dinner with views before the gondola back down.</div></div></div>
-</div>
-
-<!-- DAY 6: Sun 7 Jun -->
-<div class="day" id="d5">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#E1F5EE;color:#0F6E56">Sun 7 Jun</span><div><div class="dtitle">Queenstown — TSS Earnslaw + Gardens</div><div class="droute">Walter Peak Farm Tour · Relaxed afternoon</div></div></div>
-    <div class="winter"><strong>❄ June note:</strong> TSS Earnslaw runs year-round. The Walter Peak farm tour operates in winter — book at realjourneys.co.nz. The Queenstown lakefront is cold but beautiful with The Remarkables snow-covered across the water.</div>
-  </div>
-
-  <div class="slot"><div class="st">9:00 am</div><div class="sb"><div class="slabel">Breakfast <span class="tag tok">✓</span></div>
-    <div class="eat"><span class="eh">Vudu Café</span> — Great brunch, family-friendly courtyard. Hours: daily 7 am–4 pm.<br><span class="eh">Beach Street Cafe by Mountain Club</span> — Relaxed, good breakfast. Hours: daily ~7:30 am–3 pm.</div></div></div>
-
-  <div class="slot"><div class="st">10:00 am</div><div class="sb"><div class="slabel">Queenstown town + Steamer Wharf wander</div>
-    <div class="note">Free morning before the tour. Browse the waterfront, let kids look at the boats and the lake. The Remarkables range with snow is excellent for photos from the wharf.</div>
-    <div class="photo"><span class="ph">📷 Queenstown lakefront:</span> The Remarkables range across Lake Wakatipu with snow in June — best shot from the Steamer Wharf area or Queenstown Gardens. If the TSS Earnslaw is moored nearby, that's a great foreground.</div></div></div>
-
-  <div class="slot"><div class="st">12:30 pm</div><div class="sb"><div class="slabel">Board TSS Earnslaw at Steamer Wharf</div></div></div>
-
-  <div class="slot"><div class="st">1:00 pm</div><div class="sb"><div class="slabel">TSS Earnslaw — Walter Peak Farm Tour departs <span class="tag tok">✓ Book ahead</span></div>
-    <div class="note">~3–3.5 hrs return. The historic coal-fired steamship sails across Lake Wakatipu to Walter Peak High Country Farm — farm animal encounters, sheepdog demonstration, shearing display, and beautiful homestead gardens. Kids love the boat ride and the farm equally. The engine room viewing on the steamship is a highlight for the 7-yr-old especially. Book at realjourneys.co.nz.</div></div></div>
-
-  <div class="slot"><div class="st">4:30 pm</div><div class="sb"><div class="slabel">Return to Queenstown · Rest</div></div></div>
-
-  <div class="slot"><div class="st">5:30 pm</div><div class="sb"><div class="slabel">Queenstown Gardens + Bathhouse Playground <span class="tag tok">✓</span></div>
-    <div class="note">A short wander after the tour — flat, free, good for kids to burn off energy. 30–40 mins before it gets too cold.</div></div></div>
-
-  <div class="slot"><div class="st">6:30 pm</div><div class="sb"><div class="slabel">Dinner</div>
-    <div class="eat"><span class="eh">Public Italian Kitchen</span> — Best family dinner pick in Queenstown. Great pizza & pasta. Hours: daily 12 pm–9:30 pm.<br><span class="eh">Fishbone Bar & Grill</span> — Seafood-focused, relaxed family atmosphere. Hours: daily 12 pm–late.</div></div></div>
-</div>
-
-<!-- DAY 7: Mon 8 Jun -->
-<div class="day" id="d6">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#FAEEDA;color:#854F0B">Mon 8 Jun</span><div><div class="dtitle">Queenstown → Clay Cliffs → Lake Tekapo</div><div class="droute">Long driving day · One main stop</div></div></div>
-    <div class="winter"><strong>❄ June:</strong> SH8 through Lindis Pass and Omarama is generally fine but can have icy patches early morning. Clay Cliffs walk is exposed and cold — warm layers essential. Important: Tekapo Springs Kids Aqua Play is <strong>weekdays closed</strong> in winter — hot pools and ice skating will be available tonight, but the aqua play area is weekends only. Plan accordingly.</div>
-  </div>
-
-  <div class="slot"><div class="st">9:00 am</div><div class="sb"><div class="slabel">Breakfast in Queenstown · Depart</div>
-    <div class="eat"><span class="eh">Yonder or Odd Saint</span> — Quick breakfast before hitting the road.</div></div></div>
-
-  <div class="drive">🚗 Queenstown → Omarama (Clay Cliffs) ~2.5 hrs via Lindis Pass</div>
-
-  <div class="photo"><span class="ph">📷 Lindis Pass summit:</span> Pull into the summit layby — golden tussock rolling hills and snow-capped peaks. 5-minute stop.</div>
-
-  <div class="slot"><div class="st">11:30 am</div><div class="sb"><div class="slabel">Clay Cliffs, Omarama <span class="tag tok">✓</span></div>
-    <div class="note">Access via a short private farm road (~$5 fee). The walk is ~20 mins on gravel — manageable for both kids. Dramatic white eroded pinnacles against a blue winter sky. Cold and exposed — warm layers essential. Allow 45–60 mins total.</div>
-    <div class="eat"><span class="eh">Omarama Hot Tubs</span> — Private outdoor hot tubs a short drive away. A genuinely wonderful warm-up after a cold outdoor walk — book ahead. Or: <span class="eh">Clay Cliffs Café</span> (near the entrance) for a simple hot lunch.</div>
-    <div class="photo"><span class="ph">📷 Clay Cliffs:</span> The white/grey pinnacles are dramatic against a blue winter sky. Get a shot of the kids standing at the base of the tall formations — makes for a fun sense-of-scale family photo.</div></div></div>
-
-  <div class="drive">🚗 Omarama → Lake Tekapo ~1.5 hrs via SH8</div>
-
-  <div class="slot"><div class="st">2:00 pm</div><div class="sb"><div class="slabel">Arrive Lake Tekapo · Check-in Starry Hotel</div></div></div>
-
-  <div class="slot"><div class="st">3:00 pm</div><div class="sb"><div class="slabel">Tekapo Springs — hot pools & ice skating <span class="tag tok">✓ Great in winter</span></div>
-    <div class="note">The hot pools in June are magical — steam rising off the water with mountain views. The outdoor ice skating rink is open (April–August). Snow tube park opens early-mid June weather-dependent (1 m height minimum). Note: Aqua Play kids area is weekends only on weekdays in winter — hot pools and ice skating are still available. Allow 2–2.5 hrs.</div>
-    <div class="hrs">300 Lake Side Drive · <strong>Hot pools daily 10 am–9 pm (last entry 8 pm)</strong> · Ice skating: April–August · Snow tube: May–Oct weather-dependent · Under 3 free · +64 3 680 6550</div></div></div>
-
-  <div class="slot"><div class="st">6:00 pm</div><div class="sb"><div class="slabel">Dinner in Tekapo</div>
-    <div class="eat"><span class="eh">Kohan Restaurant</span> — Japanese, good fish, lakeside. Hours: daily 11:30 am–9 pm.<br><span class="eh">Altitude 720 Café</span> (at Tekapo Springs) — On-site convenience if you don't want to leave after the pools.</div></div></div>
-</div>
-
-<!-- DAY 8: Tue 9 Jun -->
-<div class="day" id="d7">
-  <div class="dhead">
-    <div class="dhead-top"><span class="dbadge" style="background:#E1F5EE;color:#0F6E56">Tue 9 Jun</span><div><div class="dtitle">Lake Tekapo → Christchurch Airport</div><div class="droute">~2.5 hrs drive · 10:50 am flight · Final day</div></div></div>
-    <div class="winter"><strong>❄ June:</strong> SH8 / SH79 back to Christchurch is generally fine but can be frosty early morning in the Mackenzie. Leave after 9 am once frost has cleared. Allow 2.5 hrs driving plus buffer. Your 10:50 am flight is the next morning — you're overnighting at Novotel Airport, so today is actually relaxed.</div>
-  </div>
-
-  <div class="option-box">
-    <div class="option-title">Two options for today — choose based on energy levels:</div>
-
-    <div style="margin-bottom:12px;padding:10px;background:var(--color-background-primary);border-radius:6px;border:1px solid var(--color-border-tertiary)">
-      <div style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px">Option A — Tekapo Springs morning + Willowbank</div>
-      <div class="slot" style="margin-bottom:6px"><div class="st">8:30 am</div><div class="sb"><div class="slabel">Tekapo Springs — morning session</div><div class="note">Good if you want more pool time or if kids didn't get the aqua play area yesterday (Monday = weekdays only in winter). Morning is quieter. Hot pools + ice skating. Allow 1.5 hrs.</div><div class="hrs">Opens 10 am — arrive at 10 am · last entry 8 pm</div></div></div>
-      <div class="drive">🚗 Lake Tekapo → Christchurch ~2.5 hrs · Leave by 12 pm</div>
-      <div class="slot" style="margin-bottom:6px"><div class="st">2:30 pm</div><div class="sb"><div class="slabel">Willowbank Wildlife Reserve, Christchurch <span class="tag tok">✓</span></div><div class="note">Native NZ birds, kiwi house, tuatara, farm animals. Kids-focused, not too much walking. Allow 1.5–2 hrs.</div><div class="hrs">60 Hussey Rd · daily 9:30 am–5 pm (last entry 4 pm) · +64 3 359 6226</div></div></div>
-      <div class="slot"><div class="st">5:00 pm</div><div class="sb"><div class="slabel">Car return · Check-in Novotel Airport</div></div></div>
+  <div class="tabs">
+    <div class="tab active" onclick="show(0)">
+      <span class="tday">Day 1</span><span class="tdate">Tue 2 Jun</span><span class="tdate">CHC &rarr; Tekapo</span>
     </div>
-
-    <div style="padding:10px;background:var(--color-background-primary);border-radius:6px;border:1px solid var(--color-border-tertiary)">
-      <div style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px">Option B — Earlier departure + Christchurch city + Willowbank</div>
-      <div class="slot" style="margin-bottom:6px"><div class="st">9:00 am</div><div class="sb"><div class="slabel">Leave Tekapo · Drive to Christchurch</div></div></div>
-      <div class="drive">🚗 Lake Tekapo → Christchurch ~2.5 hrs</div>
-      <div class="slot" style="margin-bottom:6px"><div class="st">11:30 am</div><div class="sb"><div class="slabel">Christchurch city — quick explore</div><div class="note">Riverside Market (open daily), a wander through the Botanic Gardens (free, flat, great for kids), or the Canterbury Museum (free). ~1.5 hrs.</div><div class="eat"><span class="eh">Riverside Market</span> — Great for a casual lunch with lots of food stall options. Hours: daily 8 am–5 pm.</div></div></div>
-      <div class="slot" style="margin-bottom:6px"><div class="st">2:00 pm</div><div class="sb"><div class="slabel">Willowbank Wildlife Reserve</div><div class="hrs">60 Hussey Rd · daily 9:30 am–5 pm (last entry 4 pm)</div></div></div>
-      <div class="slot"><div class="st">5:00 pm</div><div class="sb"><div class="slabel">Car return · Check-in Novotel Airport</div></div></div>
+    <div class="tab" onclick="show(1)">
+      <span class="tday">Day 2</span><span class="tdate">Wed 3 Jun</span><span class="tdate">Tekapo &rarr; Mt Cook</span>
+    </div>
+    <div class="tab" onclick="show(2)">
+      <span class="tday">Day 3</span><span class="tdate">Thu 4 Jun</span><span class="tdate">Mt Cook &rarr; QT</span>
+    </div>
+    <div class="tab" onclick="show(3)">
+      <span class="tday">Day 4</span><span class="tdate">Fri 5 Jun</span><span class="tdate">QT + Wanaka</span>
+    </div>
+    <div class="tab" onclick="show(4)">
+      <span class="tday">Day 5</span><span class="tdate">Sat 6 Jun</span><span class="tdate">Queenstown</span>
+    </div>
+    <div class="tab" onclick="show(5)">
+      <span class="tday">Day 6</span><span class="tdate">Sun 7 Jun</span><span class="tdate">Queenstown</span>
+    </div>
+    <div class="tab" onclick="show(6)">
+      <span class="tday">Day 7</span><span class="tdate">Mon 8 Jun</span><span class="tdate">QT &rarr; Tekapo</span>
+    </div>
+    <div class="tab" onclick="show(7)">
+      <span class="tday">Day 8</span><span class="tdate">Tue 9 Jun</span><span class="tdate">Tekapo &rarr; CHC</span>
     </div>
   </div>
 
-  <div class="rec"><strong>Our recommendation: Option A.</strong> You've already done a farm tour on Day 6 (Walter Peak) and a petting zoo on Day 2, so Willowbank is the more unique experience here — native NZ wildlife, the kiwi house, and tuatara are things you genuinely can't see elsewhere. The Christchurch city wander on a cold June weekday with two tired kids at the end of a trip isn't worth the extra effort. Tekapo Springs in the morning keeps the holiday feeling going, and Willowbank makes for a memorable, low-key final activity. Keep the last evening relaxed at the Novotel.</div>
+  <!-- DAY 1 -->
+  <div class="day visible" id="d0">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#E1F5EE;color:#0F6E56;">Tue 2 Jun</span>
+        <div>
+          <div class="dtitle">Christchurch &rarr; Fairlie &rarr; Lake Tekapo</div>
+          <div class="droute">Arrival day &middot; ~3 hr drive total</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June:</strong> Roads can be icy or frosty past Fairlie through the Mackenzie Basin. Drive carefully after Burkes Pass. Sunset around 5 pm &mdash; aim to reach Tekapo in daylight.</div>
+    </div>
 
-  <div class="slot" style="margin-top:12px"><div class="st">Evening</div><div class="sb"><div class="slabel">Final dinner · Novotel or nearby</div>
-    <div class="eat"><span class="eh">The Terrace Restaurant</span> (Novotel) — Convenient, no need to go out with tired kids on the last night.<br><span class="eh">Riverside Market</span> — If you want a last Christchurch meal, 15 mins from the airport. Hours: daily 8 am–5 pm (check dinner hours).</div>
-    <div class="note">Early night recommended — 10:50 am flight means check-in from ~8:30 am. The Novotel is attached to the terminal so no early departure stress.</div></div></div>
-</div>
+    <div class="slot">
+      <div class="slot-time">9:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Land CHC &middot; Car pickup at Stanleys Rd <span class="inline-tag">&#10003; confirmed</span></div>
+        <div class="slot-note">RentalCars247 +64 3 662 9026. Confirm child car seats &mdash; booster for 7-yr-old, child seat for 4-yr-old. Get fuel in Christchurch before heading inland.</div>
+      </div>
+    </div>
+
+    <div class="photo-block"><span class="pn">&#128247; Burkes Pass township (en route):</span> The old stone church and golden tussock landscape mark the gateway into the Mackenzie Basin &mdash; a lovely 5-min stop and shot.</div>
+
+    <div class="drive">&#x1F697; CHC &rarr; Fairlie &nbsp; ~2 hrs via SH1 / SH79</div>
+
+    <div class="slot">
+      <div class="slot-time">11:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Fairlie &mdash; pies &amp; stretch <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">Fairlie Bakehouse</span> &mdash; Steak &amp; cheese pie, salmon pie, mince &amp; cheese, cinnamon scroll. Arrive before 12 pm or pies sell out. Hours: Mon&ndash;Sun 7 am&ndash;4 pm.<br>
+          <span class="en">Peaks Caf&eacute;</span> &mdash; Backup if the bakehouse is packed. Good coffee and cabinet food.
+        </div>
+        <div class="slot-note">Keep this stop short &mdash; grab pies, let kids stretch at the small park nearby, then push on. You want to reach Tekapo with daylight.</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Fairlie &rarr; Lake Tekapo &nbsp; ~45 min via Burkes Pass</div>
+
+    <div class="slot">
+      <div class="slot-time">1:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Church of Good Shepherd + Lake foreshore <span class="inline-tag">&#10003;</span></div>
+        <div class="photo-block"><span class="pn">&#128247; Church of Good Shepherd:</span> Stone church framed by the turquoise lake and Southern Alps &mdash; the classic Tekapo shot. In June the tussock goes golden-brown and the mountains may have snow. Flat, pram-friendly walk. Allow 30&ndash;45 mins.</div>
+        <div class="slot-note">Arrive early afternoon for fewer crowds. Short walk along the lakefront afterwards is lovely even in the cold.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">2:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Supermarket run <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Stock up on snacks, breakfast items, and drinks for the next few days in the Mackenzie. Limited shops ahead.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">3:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Check-in Galaxy Boutique Hotel &middot; Rest <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Rest before stargazing. Lay out warm clothes &mdash; Tekapo in June is 0&ndash;5&deg;C at night. Base layers + puffer jackets + hats &amp; gloves for both kids.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">5:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Early dinner &mdash; before stargazing <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">TLV Restaurant &amp; Bar</span> &mdash; Lake views, sit-down, salmon dishes. Hours: daily 11 am&ndash;9 pm.<br>
+          <span class="en">Kohan Restaurant</span> &mdash; Japanese, lakeside, kid-friendly portions. Hours: daily 11:30 am&ndash;9 pm.<br>
+          <span class="en">Jack Rabbit Caf&eacute; &amp; Bar</span> &mdash; Casual, family atmosphere, by the lake. Hours: daily ~8 am&ndash;late.<br>
+          <span class="en">The Greedy Cow Caf&eacute;</span> &mdash; Cosy indoors, great cabinet food. Check dinner hours.
+        </div>
+        <div class="slot-note">Eating at 5:30 pm is important &mdash; you don&rsquo;t want hungry kids during the 75-min stargazing session.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">6:45 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Silver River Stargazing (75 mins) <span class="inline-tag">&#10003; Age 4+ confirmed ok</span></div>
+        <div class="slot-note">Starts 7 pm &middot; Ends ~8:30 pm. Serious warm layers for both kids &mdash; multiple base layers, puffer, hat, gloves, carrier or blanket for the 4-yr-old. One of the darkest sky reserves in the world &mdash; unforgettable.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:30 pm</div>
+      <div class="slot-body"><div class="slot-label">Return to Galaxy Hotel</div></div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day" id="d1">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#E1F5EE;color:#0F6E56;">Wed 3 Jun</span>
+        <div>
+          <div class="dtitle">Lake Tekapo &rarr; Lake Pukaki &rarr; Mount Cook</div>
+          <div class="droute">~2.5 hrs total driving</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June:</strong> Mt Cook road (SH80) can be icy and snowy, especially in the afternoon. Check NZTA road status before heading up. Pack extra warm layers &mdash; the village is at the base of Aoraki.</div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Optional: Mt John Summit drive <span class="inline-tag">&#10003;</span></div>
+        <div class="photo-block"><span class="pn">&#128247; Mt John Summit:</span> 360&deg; views of Lake Tekapo, Lake Alexandrina, and the Southern Alps &mdash; the best landscape shot in the region. Toll road ~$8. Allow 20&ndash;30 mins if skies are clear.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">9:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Lake Tekapo Petting Zoo <span class="inline-tag">&#10003; Book online ahead</span></div>
+        <div class="slot-note">Hand-feed Merino sheep, alpacas, KuneKune pigs, calves. Both kids will love it. Limited spots per day &mdash; book in advance online.</div>
+        <div class="hours">48a D&rsquo;Archiac Drive &middot; <strong>Winter hours: daily 9 am&ndash;4 pm</strong> &middot; ~45&ndash;60 mins &middot; +64 27 900 0335</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Lake Tekapo &rarr; Lake Pukaki &nbsp; ~45 min via SH8</div>
+
+    <div class="photo-block"><span class="pn">&#128247; Lake Pukaki dam viewpoint:</span> Pull over at the dam lookout on SH8 &mdash; your first view of the electric turquoise lake with Aoraki behind. Even more dramatic in winter with snow on the peaks. Unmissable &mdash; 5-min stop.</div>
+
+    <div class="slot">
+      <div class="slot-time">11:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Lake Pukaki &mdash; lunch &amp; photos <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">Mt Cook Alpine Salmon Shop</span> &mdash; Salmon sashimi, nigiri, hot smoked salmon. Iconic South Island stop. Hours: daily ~9 am&ndash;5 pm &middot; +64 3 435 0427.<br>
+          <span class="en">Marker Bay Food Truck</span> &mdash; Casual outdoor, fish &amp; chips. Check winter operating days &mdash; may be reduced in June.
+        </div>
+        <div class="photo-block"><span class="pn">&#128247; Marker Bay:</span> Walk 5 mins from the carpark to the waterfront &mdash; the reflection of Aoraki in the turquoise lake is one of the most photographed views in New Zealand. Best in morning light.</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Lake Pukaki &rarr; Mount Cook Village &nbsp; ~1 hr &middot; Check NZTA road status first</div>
+
+    <div class="slot">
+      <div class="slot-time">1:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Arrive Mt Cook Village &middot; Check-in Mt Cook Lodge</div>
+        <div class="eat-block"><span class="en">Old Mountaineers&rsquo; Caf&eacute;</span> &mdash; Best caf&eacute; in the village. Pies, hot drinks, cabinet food, mountain views. Hours: daily 8 am&ndash;9 pm.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">3:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Kea Point Track <span class="inline-tag">&#10003; Save Hooker for Day 3</span></div>
+        <div class="slot-note">1.5 km return (~30 mins), flat, pram-accessible. Direct view of Mueller Glacier and Aoraki&rsquo;s face. Perfect for a cold late afternoon &mdash; less demanding than Hooker, still genuinely impressive.</div>
+        <div class="photo-block"><span class="pn">&#128247; Kea Point:</span> Mueller Glacier terminal lake with Aoraki looming behind. In winter with snow on the valley floor, this is dramatic. Great family shot at the viewpoint platform.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">5:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Dinner</div>
+        <div class="eat-block">
+          <span class="en">Old Mountaineers&rsquo; Caf&eacute;</span> &mdash; Casual, warm, great food. Preferred with kids. Open until 9 pm.<br>
+          <span class="en">The Hermitage Hotel Restaurant</span> &mdash; More formal option. Dinner from 6 pm. Mountain views.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day" id="d2">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#E1F5EE;color:#0F6E56;">Thu 4 Jun</span>
+        <div>
+          <div class="dtitle">Mount Cook &rarr; Twizel &rarr; Queenstown</div>
+          <div class="droute">Hooker Valley Track AM &middot; ~4 hrs total driving &middot; Checkout at breakfast</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June:</strong> Hooker Valley will be cold and possibly frosty &mdash; dress in multiple layers. Track may have icy patches near the glacier end. Lindis Pass drive is stunning winter tussock landscape. Sunset ~5 pm &mdash; aim for Queenstown by 5 pm.</div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Breakfast at Old Mountaineers&rsquo; &middot; Checkout bags to car <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block"><span class="en">Old Mountaineers&rsquo; Caf&eacute;</span> &mdash; Opens 8 am. Check out, load bags into car, head straight to the trailhead after breakfast. 5-min drive from lodge to Hooker Valley carpark.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:45 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Hooker Valley Track <span class="inline-tag">&#10003; Target 2nd swing bridge</span></div>
+        <div class="slot-note">Target: second suspension bridge (~5 km return, ~1.5 hrs) &mdash; iconic Aoraki reflection in Hooker Lake on a clear day. Both suspension bridges are exciting for kids. If energy or cold is a factor, the first bridge (2 km return, ~40 mins) is still a great experience.</div>
+        <div class="photo-block"><span class="pn">&#128247; Hooker Valley:</span> Suspension bridges with Aoraki behind &mdash; an iconic NZ shot. Best light is morning. Fresh snow on the valley floor in June makes this even more dramatic. Get a family shot mid-bridge with the mountain behind.</div>
+        <div class="slot-note"><strong>Weather backup:</strong> If the track is icy or closed, the Blue Lakes Walk (1 km) or Tasman Glacier Viewpoint (45 min return) are safe, child-friendly alternatives.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">10:30 am</div>
+      <div class="slot-body"><div class="slot-label">Back to car &middot; Head to Twizel</div></div>
+    </div>
+
+    <div class="drive">&#x1F697; Mt Cook &rarr; Twizel &nbsp; ~1 hr via SH80 / SH8</div>
+
+    <div class="photo-block"><span class="pn">&#128247; Lake Ruataniwha (near Twizel):</span> Quick lakefront pull-off on SH8 &mdash; flat turquoise lake framed by mountains. 5-minute stop.</div>
+
+    <div class="slot">
+      <div class="slot-time">11:45 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Twizel &mdash; lunch &amp; rest <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">Mint Folk &amp; Co</span> &mdash; Best lunch in Twizel. Modern caf&eacute;, quality food. Hours: daily ~8 am&ndash;3 pm.<br>
+          <span class="en">Poppies Caf&eacute;</span> &mdash; Family-friendly, great warm portions, cosy inside. Hours: daily ~8 am&ndash;3 pm.<br>
+          <span class="en">Col&rsquo;s Bakery</span> &mdash; Quick pies &amp; pastries if you want to push on. Hours: Mon&ndash;Sat ~7 am&ndash;3 pm.
+        </div>
+        <div class="slot-note">Small playground near the town centre &mdash; good for kids to run around before the long drive to Queenstown.</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Twizel &rarr; Queenstown &nbsp; ~3 hrs via Lindis Pass (SH8)</div>
+
+    <div class="photo-block"><span class="pn">&#128247; Lindis Pass summit (~1,000 m):</span> Pull into the summit layby &mdash; rolling golden-brown tussock with snow-dusted peaks in every direction. One of the most underrated stops in New Zealand. 5 minutes, huge reward.</div>
+
+    <div class="slot">
+      <div class="slot-time">3:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Arrive Queenstown &middot; Check-in Crowne Plaza <span class="inline-tag">&#10003;</span></div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">5:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Steamer Wharf stroll + dinner</div>
+        <div class="eat-block">
+          <span class="en">Public Italian Kitchen</span> &mdash; Top pick for families. Great pizza &amp; pasta. Hours: daily 12 pm&ndash;9:30 pm.<br>
+          <span class="en">Winnies</span> &mdash; Great pizza, laid-back, family-friendly. Hours: daily from 4 pm.<br>
+          <span class="en">The Boat Shed</span> (Steamer Wharf) &mdash; Fish &amp; chips, lakeside. Easy and casual after a long day.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day" id="d3">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#EEEDFE;color:#534AB7;">Fri 5 Jun</span>
+        <div>
+          <div class="dtitle">Queenstown &rarr; Wanaka Day Trip</div>
+          <div class="droute">~1&ndash;1.5 hr each way</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June route:</strong> Crown Range Road (70 km, ~1 hr) &mdash; NZ&rsquo;s highest sealed road, dramatic Cardrona Valley views, but can be icy in June and may require snow chains. Check conditions that morning. SH6 via Cromwell (115 km, ~1.5 hrs) is the safer winter alternative. If Crown Range looks clear, take it &mdash; it&rsquo;s exceptional.</div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Breakfast in Queenstown <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">Odd Saint</span> &mdash; Great breakfast, modern caf&eacute;. Hours: daily 7 am&ndash;3 pm.<br>
+          <span class="en">Yonder</span> &mdash; Spacious, family-friendly. Hours: daily 7 am&ndash;2:30 pm.
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-block"><span class="pn">&#128247; Lake Hayes (SH6 route):</span> Mirror-calm lake just outside Queenstown. On still winter mornings the reflection is perfect &mdash; 5-min roadside pull-off.</div>
+    <div class="photo-block"><span class="pn">&#128247; Crown Range summit (if taking that route):</span> Panoramic view down over the Cardrona Valley &mdash; one of the great NZ road trip shots. 5-minute stop.</div>
+
+    <div class="drive">&#x1F697; Queenstown &rarr; Wanaka &nbsp; ~1 hr (Crown Range) or ~1.5 hrs (SH6 via Cromwell)</div>
+
+    <div class="slot">
+      <div class="slot-time">10:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">That Wanaka Tree + lakefront <span class="inline-tag">&#10003;</span></div>
+        <div class="photo-block"><span class="pn">&#128247; That Wanaka Tree:</span> The lone willow standing in the lake with the Southern Alps behind &mdash; one of NZ&rsquo;s most photographed scenes. Short walk from town along the lakefront. In winter with snow-capped peaks it&rsquo;s spectacular. Kids enjoy the rocky shoreline too. Allow 20&ndash;30 mins.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">10:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Wanaka town explore + coffee</div>
+        <div class="eat-block"><span class="en">Federal Diner</span> &mdash; Famous scones, great coffee, cosy local feel. Hours: daily 7 am&ndash;3 pm &middot; 47 Helwick St.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">1:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Lunch in Wanaka <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">Relishes Caf&eacute;</span> &mdash; Fireplace in winter, lakefront views, excellent menu. Hours: daily 7:30 am&ndash;3 pm &middot; 99 Ardmore St.<br>
+          <span class="en">Kai Whakapai</span> &mdash; Lake views, relaxed all-day menu, family-friendly. Hours: daily ~8 am&ndash;late.
+        </div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">2:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Lake Wanaka foreshore walk <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Flat, easy walk from town. Beautiful in winter with snow on the mountains. Keep to 30 mins &mdash; June afternoons cool down quickly. Kids can feed the ducks near the waterfront.</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Wanaka &rarr; Queenstown &nbsp; ~1&ndash;1.5 hrs &middot; Leave by 3 pm to be back before dark</div>
+
+    <div class="slot">
+      <div class="slot-time">5:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Back in Queenstown &middot; Dinner</div>
+        <div class="eat-block">
+          <span class="en">Fergburger</span> &mdash; Worth doing once. Go at 5 pm to beat the queue. Hours: daily 8 am&ndash;5 am.<br>
+          <span class="en">Erik&rsquo;s Fish and Chips</span> &mdash; Easy, affordable family meal. Hours: daily ~11 am&ndash;9 pm.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day" id="d4">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#E1F5EE;color:#0F6E56;">Sat 6 Jun</span>
+        <div>
+          <div class="dtitle">Queenstown &mdash; Snow Day + Skyline</div>
+          <div class="droute">Coronet Peak AM &middot; Skyline PM</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June = ski season:</strong> Coronet Peak typically opens mid-June. Check coronetpeak.co.nz for the exact opening date. Ski school runs from age 3. If snow isn&rsquo;t operating yet, swap the morning for Arrowtown.</div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Coronet Peak &mdash; if open <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Beginner slopes, ski school for both kids (age 3+). Hire gear at the base. Warm waterproof layers + sunscreen &mdash; UV is strong on snow. Allow the full morning. A half-day ski lesson for the kids is a great option.</div>
+        <div class="eat-block"><span class="en">Coronet Peak base lodge caf&eacute;</span> &mdash; Hot food and warming drinks on the mountain.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">8:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Arrowtown &mdash; if Coronet not open yet <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Historic gold-mining town, 20 min from Queenstown. Very charming in winter &mdash; quiet, fewer crowds. Kids love the Chinese Settlement site and Arrow River. Allow 1.5 hrs.</div>
+        <div class="eat-block"><span class="en">Postmasters Caf&eacute;</span> &mdash; Popular brunch spot. Hours: daily ~8 am&ndash;4 pm.</div>
+        <div class="photo-block"><span class="pn">&#128247; Arrowtown:</span> Heritage-listed lane of gold-era cottages backed by tussock hills &mdash; great family walking shot.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">2:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Skyline Queenstown + Luge <span class="inline-tag">&#10003; Kids favourite</span></div>
+        <div class="slot-note">Gondola up + luge runs &mdash; perfect for both ages (min 3 yrs, 4-yr-old rides tandem with a parent). Allow 3&ndash;4 hrs. In winter, The Remarkables under snow from the gondola is spectacular. Do luge runs 2&ndash;4 pm while daylight remains, then head up for dinner.</div>
+        <div class="eat-block"><span class="en">Stratosfare Restaurant</span> (Skyline) &mdash; Buffet at the top. Kids at a lower price. Great views even in winter.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day" id="d5">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#E1F5EE;color:#0F6E56;">Sun 7 Jun</span>
+        <div>
+          <div class="dtitle">Queenstown &mdash; TSS Earnslaw + Gardens</div>
+          <div class="droute">Walter Peak Farm Tour &middot; Relaxed afternoon</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June:</strong> TSS Earnslaw runs year-round. Walter Peak farm tour operates in winter &mdash; book at realjourneys.co.nz. The Remarkables range is snow-covered &mdash; stunning backdrop from the water.</div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">9:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Breakfast <span class="inline-tag">&#10003;</span></div>
+        <div class="eat-block">
+          <span class="en">Vudu Caf&eacute;</span> &mdash; Great brunch, family-friendly. Hours: daily 7 am&ndash;4 pm.<br>
+          <span class="en">Beach Street Cafe by Mountain Club</span> &mdash; Relaxed, good breakfast. Hours: daily ~7:30 am&ndash;3 pm.
+        </div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">10:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Queenstown town + Steamer Wharf wander</div>
+        <div class="photo-block"><span class="pn">&#128247; Queenstown lakefront:</span> The Remarkables range across Lake Wakatipu with snow in June &mdash; best shot from the Steamer Wharf area or Queenstown Gardens. If the TSS Earnslaw is moored nearby, that makes a great foreground.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">12:30 pm</div>
+      <div class="slot-body"><div class="slot-label">Board TSS Earnslaw at Steamer Wharf</div></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">1:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">TSS Earnslaw &mdash; Walter Peak Farm Tour departs <span class="inline-tag">&#10003; Book ahead</span></div>
+        <div class="slot-note">~3&ndash;3.5 hrs return. Historic coal-fired steamship across Lake Wakatipu to Walter Peak High Country Farm &mdash; farm animals, sheepdog demonstration, shearing display, homestead gardens. Kids love the boat and the farm equally. Engine room viewing is a highlight for the 7-yr-old. Book at realjourneys.co.nz.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">4:30 pm</div>
+      <div class="slot-body"><div class="slot-label">Return to Queenstown &middot; Rest</div></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">5:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Queenstown Gardens + Bathhouse Playground <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Short wander &mdash; flat, free, good for kids to burn off energy. 30&ndash;40 mins before it gets too cold.</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">6:30 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Dinner</div>
+        <div class="eat-block">
+          <span class="en">Public Italian Kitchen</span> &mdash; Best family dinner pick in Queenstown. Pizza &amp; pasta. Hours: daily 12 pm&ndash;9:30 pm.<br>
+          <span class="en">Fishbone Bar &amp; Grill</span> &mdash; Seafood-focused, relaxed family atmosphere. Hours: daily 12 pm&ndash;late.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day" id="d6">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#FAEEDA;color:#854F0B;">Mon 8 Jun</span>
+        <div>
+          <div class="dtitle">Queenstown &rarr; Clay Cliffs &rarr; Lake Tekapo</div>
+          <div class="droute">Long driving day &middot; One main stop</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June:</strong> SH8 via Lindis Pass can have icy patches early morning. Clay Cliffs walk is exposed and cold &mdash; warm layers essential. <strong>Note:</strong> Tekapo Springs Kids Aqua Play is weekends only in winter &mdash; hot pools and ice skating are available, but aqua play is closed on Mondays.</div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">9:00 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Breakfast in Queenstown &middot; Depart</div>
+        <div class="eat-block"><span class="en">Yonder or Odd Saint</span> &mdash; Quick breakfast before hitting the road.</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Queenstown &rarr; Omarama (Clay Cliffs) &nbsp; ~2.5 hrs via Lindis Pass</div>
+
+    <div class="photo-block"><span class="pn">&#128247; Lindis Pass summit:</span> Pull into the summit layby &mdash; golden tussock rolling hills and snow-capped peaks. 5-minute stop.</div>
+
+    <div class="slot">
+      <div class="slot-time">11:30 am</div>
+      <div class="slot-body">
+        <div class="slot-label">Clay Cliffs, Omarama <span class="inline-tag">&#10003;</span></div>
+        <div class="slot-note">Access via a private farm road (~$5 fee). Walk is ~20 mins on gravel &mdash; manageable for both kids. Dramatic white eroded pinnacles against a blue winter sky. Cold and exposed &mdash; warm layers essential. Allow 45&ndash;60 mins total.</div>
+        <div class="eat-block">
+          <span class="en">Omarama Hot Tubs</span> &mdash; Private outdoor hot tubs nearby. A wonderful warm-up after a cold walk &mdash; book ahead.<br>
+          <span class="en">Clay Cliffs Caf&eacute;</span> &mdash; Simple hot lunch near the entrance.
+        </div>
+        <div class="photo-block"><span class="pn">&#128247; Clay Cliffs:</span> White/grey pinnacles against a blue winter sky. Get the kids at the base of the tall formations for a great sense-of-scale family photo.</div>
+      </div>
+    </div>
+
+    <div class="drive">&#x1F697; Omarama &rarr; Lake Tekapo &nbsp; ~1.5 hrs via SH8</div>
+
+    <div class="slot">
+      <div class="slot-time">2:00 pm</div>
+      <div class="slot-body"><div class="slot-label">Arrive Lake Tekapo &middot; Check-in Starry Hotel</div></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">3:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Tekapo Springs &mdash; hot pools &amp; ice skating <span class="inline-tag">&#10003; Magical in winter</span></div>
+        <div class="slot-note">The hot pools in June are magical &mdash; steam rising off the water with mountain views. Ice skating rink open (April&ndash;August). Snow tube park opening early-mid June weather-dependent (1 m height minimum). Aqua Play is weekends only &mdash; not available on Mondays. Allow 2&ndash;2.5 hrs.</div>
+        <div class="hours">300 Lake Side Drive &middot; <strong>Hot pools daily 10 am&ndash;9 pm (last entry 8 pm)</strong> &middot; Ice skating: April&ndash;August &middot; Under 3 free &middot; +64 3 680 6550</div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-time">6:00 pm</div>
+      <div class="slot-body">
+        <div class="slot-label">Dinner in Tekapo</div>
+        <div class="eat-block">
+          <span class="en">Kohan Restaurant</span> &mdash; Japanese, good fish, lakeside. Hours: daily 11:30 am&ndash;9 pm.<br>
+          <span class="en">Altitude 720 Caf&eacute;</span> (at Tekapo Springs) &mdash; On-site convenience if you don&rsquo;t want to head out after the pools.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day" id="d7">
+    <div class="dhead">
+      <div class="dhead-top">
+        <span class="dbadge" style="background:#E1F5EE;color:#0F6E56;">Tue 9 Jun</span>
+        <div>
+          <div class="dtitle">Lake Tekapo &rarr; Christchurch Airport</div>
+          <div class="droute">~2.5 hrs drive &middot; 10:50 am flight next morning &middot; Final day</div>
+        </div>
+      </div>
+      <div class="winter-note"><strong>&#10052; June:</strong> SH8/SH79 back to Christchurch can be frosty early morning. Leave after 9 am once any frost has cleared. You&rsquo;re overnighting at Novotel Airport tonight, so today is relaxed &mdash; no rush.</div>
+    </div>
+
+    <div class="option-wrap">
+      <div class="option-box">
+        <div class="option-title">&#11088; Option A &mdash; Tekapo Springs morning + Willowbank &nbsp;(Recommended)</div>
+        <div class="option-body">
+          <div class="slot">
+            <div class="slot-time">10:00 am</div>
+            <div class="slot-body">
+              <div class="slot-label">Tekapo Springs &mdash; morning session</div>
+              <div class="slot-note">Quieter than evenings. Hot pools + ice skating. Note: aqua play is weekends only &mdash; Tuesday = closed. Allow 1.5 hrs.</div>
+              <div class="hours">Opens 10 am &middot; 300 Lake Side Drive</div>
+            </div>
+          </div>
+          <div class="drive">&#x1F697; Lake Tekapo &rarr; Christchurch &nbsp; ~2.5 hrs &middot; Leave by 12 pm</div>
+          <div class="photo-block"><span class="pn">&#128247; Burkes Pass (heading back):</span> Last view of the Southern Alps as you leave the Mackenzie Basin &mdash; stop for a final shot of the wide valley behind you.</div>
+          <div class="slot">
+            <div class="slot-time">2:30 pm</div>
+            <div class="slot-body">
+              <div class="slot-label">Willowbank Wildlife Reserve, Christchurch <span class="inline-tag">&#10003;</span></div>
+              <div class="slot-note">Native NZ birds, kiwi house (kids love it), tuatara, farm animals. Not too much walking. Allow 1.5&ndash;2 hrs.</div>
+              <div class="hours">60 Hussey Rd &middot; Daily 9:30 am&ndash;5 pm (last entry 4 pm) &middot; +64 3 359 6226</div>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-time">5:00 pm</div>
+            <div class="slot-body"><div class="slot-label">Car return &middot; Check-in Novotel Christchurch Airport</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-box">
+        <div class="option-title">Option B &mdash; Earlier departure + Christchurch city + Willowbank</div>
+        <div class="option-body">
+          <div class="slot">
+            <div class="slot-time">9:00 am</div>
+            <div class="slot-body"><div class="slot-label">Leave Tekapo &middot; Drive to Christchurch</div></div>
+          </div>
+          <div class="drive">&#x1F697; Lake Tekapo &rarr; Christchurch &nbsp; ~2.5 hrs</div>
+          <div class="slot">
+            <div class="slot-time">11:30 am</div>
+            <div class="slot-body">
+              <div class="slot-label">Christchurch city &mdash; quick explore</div>
+              <div class="slot-note">Riverside Market, Botanic Gardens (free, flat, great for kids), or Canterbury Museum (free). ~1.5 hrs.</div>
+              <div class="eat-block"><span class="en">Riverside Market</span> &mdash; Casual lunch with lots of food stall options. Hours: daily 8 am&ndash;5 pm.</div>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-time">2:00 pm</div>
+            <div class="slot-body">
+              <div class="slot-label">Willowbank Wildlife Reserve</div>
+              <div class="hours">60 Hussey Rd &middot; Daily 9:30 am&ndash;5 pm (last entry 4 pm)</div>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="slot-time">5:00 pm</div>
+            <div class="slot-body"><div class="slot-label">Car return &middot; Check-in Novotel Christchurch Airport</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-box">
+      <strong>Recommendation: Option A.</strong> You&rsquo;ve already done a petting zoo on Day 2 and a farm tour on Day 6, so Willowbank offers something genuinely different &mdash; native NZ wildlife like kiwi, tuatara, and weta that you simply can&rsquo;t see elsewhere. A cold June weekday in Christchurch city with tired kids at the end of a big trip isn&rsquo;t the best trade-off. Tekapo Springs in the morning keeps the holiday vibe going, and Willowbank makes for a memorable, low-key final activity before a relaxed last night at the Novotel.
+    </div>
+
+    <div class="slot" style="margin-top:18px;">
+      <div class="slot-time">Evening</div>
+      <div class="slot-body">
+        <div class="slot-label">Final dinner</div>
+        <div class="eat-block">
+          <span class="en">The Terrace Restaurant</span> (Novotel) &mdash; Convenient, no need to go out with tired kids on the last night.<br>
+          <span class="en">Riverside Market</span> &mdash; 15 mins from the airport if you want a last Christchurch meal. Hours: daily 8 am&ndash;5 pm (check dinner hours).
+        </div>
+        <div class="slot-note">Early night recommended &mdash; 10:50 am flight means check-in from ~8:30 am. The Novotel is attached to the terminal so no early departure stress.</div>
+      </div>
+    </div>
+  </div>
 
 </div>
 <script>
-function show(i){
-  document.querySelectorAll('.day').forEach(d=>d.classList.remove('visible'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('d'+i).classList.add('visible');
+function show(i) {
+  document.querySelectorAll('.day').forEach(function(d) { d.classList.remove('visible'); });
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('d' + i).classList.add('visible');
   document.querySelectorAll('.tab')[i].classList.add('active');
 }
 </script>
+</body>
+</html>
